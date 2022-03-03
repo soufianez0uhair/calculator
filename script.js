@@ -14,7 +14,23 @@ function multiply(a, b) {
 function divide(a,b) {
     return a / b;
 }
-console.log(add(2,3));
-console.log(substract(2,3));
-console.log(multiply(2,3));
-console.log(divide(2,3))
+// function that takes two numbers and the choosing one
+function operator(a,b,op) {
+    switch(op) {
+        case "+":
+            return a + b;
+            break;
+        case "-":
+            return a - b;
+            break;
+        case "/":
+            return a / b;
+            break;
+        case "*":
+            return a * b;
+            break;
+        default:
+            return "invalid operator";
+            break;
+    }
+}
