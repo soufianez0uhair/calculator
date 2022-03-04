@@ -1,22 +1,13 @@
-const btns = document.querySelectorAll('.btn')
-// function that adds two numbers
-function add(a,b) {
-    return a + b;
-}
-// function that substract two numbers
-function substract(a, b) {
-    return a - b;
-}
-// function that multiply two numbers
-function multiply(a, b) {
-    return a * b;
-}
-// function that divide two numbers
-function divide(a,b) {
-    return a / b;
-}
-// function that takes two numbers and the choosing one
-function operator(a,b,op) {
+let currentNum = '';
+let previousNum = '';
+let operator = '';
+let currentDisplayedNum = document.querySelector('.displayed-number');
+let previousDisplayedNum = document.querySelector('.previous-num');
+let btns = document.querySelectorAll('.btn');
+btns.forEach(btn => btn.addEventListener('click', (e) => handleClick(e.target.textContent)));
+function operate(op,a,b) {
+    a = Number(a);
+    b = Number(b);
     switch(op) {
         case "+":
             return a + b;
@@ -24,25 +15,41 @@ function operator(a,b,op) {
         case "-":
             return a - b;
             break;
+        case "x":
+            return a * b;
+            break;
         case "/":
             return a / b;
             break;
-        case "*":
-            return a * b;
-            break;
         default:
-            return "invalid operator";
             break;
     }
 }
-// function that display numbers to the screen
-function display(id){
-    const num = document.querySelector('.displayed-number');
-    num.textContent = num.textContent + id;
+function handleClick(id) {
+    switch(id) {
+        case "+":
+        case "-":
+        case "/":
+        case "x":
+            operator = id;
+            previousNum = currentNum;
+            previousDisplayedNum.textContent = `${previousNum} ${id}`;
+            currentDisplayedNum.textContent = '';
+            currentNum = "";
+            break;
+        case "=":
+            previousDisplayedNum.textContent = '';
+            currentNum = operate(operator,previousNum,currentNum);
+            previousNum = currentNum;
+            currentDisplayedNum.textContent = currentNum;
+            break;
+        default:
+            currentNum = currentNum.toString();
+            previousNum = previousNum.toString();
+            if(currentNum.length < 6) {
+                currentNum += id;
+                currentDisplayedNum.textContent = currentNum;
+                break;
+            }
+    }
 }
-//function handleClick
-function handleClick() {
-    btns.forEach(btn => btn.addEventListener('click', () => display(btn.id)))
-}
-handleClick()
-

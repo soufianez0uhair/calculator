@@ -38,6 +38,11 @@ body {
     bottom: 0;
     right: 10px;
 }
+.previous-num {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
 .btns {
     margin-top: 20px;
     display: grid;
