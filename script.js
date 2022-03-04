@@ -43,6 +43,11 @@ function handleClick(id) {
             previousNum = currentNum;
             currentDisplayedNum.textContent = currentNum;
             break;
+        case "clear":
+            currentNum = '';
+            previousNum = '';
+            currentDisplayedNum.textContent = '';
+            break;
         default:
             currentNum = currentNum.toString();
             previousNum = previousNum.toString();
