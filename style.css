@@ -6,4 +6,70 @@
 }
 body {
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+}
+.calculator {
+    height: 530px;
+    width: 400px;
+    background: gray;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+}
+.display-screen {
+    background: #fff;
+    border: 2px solid black;
+    height: 120px;
+    color: black;
+    font-size: 20px;
+    position: relative;
+    padding: 10px;
+}
+.displayed-number {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+}
+.btns {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 1fr;
+    font-size: 32px;
+    gap: 16px;
+}
+.btn {
+    background: white;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 6px;
+}
+.clear-btn {
+    grid-column: 1/ 5;
+    background: rgb(139, 30, 30);
+}
+.equal {
+    grid-column: 2 / 4;
+    text-align: center;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    flex: 1;
+    background: gray;
+    font-size: 18px;
+}
+a {
+    text-decoration: none;
+    color: black;
 }

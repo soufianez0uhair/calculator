@@ -1,3 +1,4 @@
+const btns = document.querySelectorAll('.btn')
 // function that adds two numbers
 function add(a,b) {
     return a + b;
@@ -34,3 +35,14 @@ function operator(a,b,op) {
             break;
     }
 }
+// function that display numbers to the screen
+function display(id){
+    const num = document.querySelector('.displayed-number');
+    num.textContent = num.textContent + id;
+}
+//function handleClick
+function handleClick() {
+    btns.forEach(btn => btn.addEventListener('click', () => display(btn.id)))
+}
+handleClick()
+
